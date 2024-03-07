@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aryan Porwal Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+    <!-- defer is used, to tell the browser to first load html then run js, because generally script tag is written at the end, after html. -->
+    <script src="/js/animation.js" defer></script>
+    <script src="/js/color-mode.js" defer></script>
+    <script src="/js/project-slideshow.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/color-mode.css" />
+    <link rel="stylesheet" href="/css/animation.css" />
+  </head>
+  <body>
+    <div id="hero">
+      <h5>Hello, I'm</h5>
+      <h1>Aryan Porwal</h1>
+      <p>Frontend Developer</p>
+      <!-- Block, Element, Modifier (BEM) naming convention -->
+      <div id="hero__animation">
+        <div id="hero__animation__img"></div>
+      </div>
+    </div>
+    <div id="color_mode">
+      <div id="toggle_button" class="icon"></div>
+    </div>
+  </body>
+</html>
