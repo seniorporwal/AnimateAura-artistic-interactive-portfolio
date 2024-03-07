@@ -35,6 +35,8 @@ function saveColorMode(){
     // updateToggleButton();
 }
 
+//removed redundant js function: update toggle button, already defined in css. confusion cleared"
+
 // function updateToggleButton() {
 //     if (root.classList.contains("dark-mode")){
 //         toggleButton.style.backgroundImage = "var(--moon)";
