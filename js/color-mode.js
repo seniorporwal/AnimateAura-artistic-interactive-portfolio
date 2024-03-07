@@ -13,14 +13,13 @@ const defaultMode = "light-mode";
 function loadColorMode() {
     const colorMode = localStorage.getItem(storageKey);
     root.classList.add(colorMode || defaultMode);
-    updateToggleButton();
+    // updateToggleButton();
 }
 
 loadColorMode();
 
 //Toggle the color mode
 toggleButton.addEventListener("click", () => {
-    console.log("ts")
     saveColorMode();
 })
 
@@ -33,13 +32,13 @@ function saveColorMode(){
     root.classList.remove("light-mode", "dark-mode");
     root.classList.add(currentMode);
     localStorage.setItem(storageKey, currentMode);
-    updateToggleButton();
+    // updateToggleButton();
 }
 
-function updateToggleButton() {
-    if (root.classList.contains("dark-mode")){
-        toggleButton.style.backgroundImage = "var(--moon)";
-    } else{
-        toggleButton.style.backgroundImage = "var(--sun)";
-    }
-}
+// function updateToggleButton() {
+//     if (root.classList.contains("dark-mode")){
+//         toggleButton.style.backgroundImage = "var(--moon)";
+//     } else{
+//         toggleButton.style.backgroundImage = "var(--sun)";
+//     }
+// }

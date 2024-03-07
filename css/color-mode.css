@@ -96,7 +96,7 @@
   cursor: pointer;
 }
 
-.dark-mode toggle_button {
+.dark-mode #toggle_button {
   background-image: var(--moon);
 }
 
