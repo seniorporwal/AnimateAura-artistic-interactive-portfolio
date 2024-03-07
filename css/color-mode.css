@@ -87,7 +87,7 @@
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 #toggle_button {
@@ -100,6 +100,6 @@
   background-image: var(--moon);
 }
 
-.dark-mode toggle_button {
+.dark-mode #color_mode {
   justify-content: flex-end;
 }
