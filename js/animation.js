@@ -67,6 +67,7 @@ function handleWindowResize() {
         // blBtn.style.zIndex = "100";
         // brBtn.style.zIndex = "100";
       } else {
+        // for desktop screen size
         tlActive = "translateX(5vw) translateY(0)";
         tlContent.style.transform = "translateX(5vw) translateY(0)";
         tlContent.style.width = "30vw";
@@ -81,6 +82,8 @@ function handleWindowResize() {
       break;
     case "buttom-right":
       break;
+
+    default:
   }
 }
 
@@ -108,16 +111,52 @@ function playAnimation(animation, reverseAnimation) {
   }
 }
 
-// function playClosingAnimation(animation, reverseAnimation){
-//     //do something with these values
-// }
+function playClosingAnimation(reverseAnimation) {
+  tlBtn.innerHTML = "About";
+  // trBtn.innerHTML = "Experience";
+  // blBtn.innerHTML = "Projects";
+  // brBtn.innerHTML = "Contacts";
+
+  switch (activeCorner) {
+    case "top-left":
+      tlBtn.style.background = bgColor;
+      tlBtn.style.color = textColor;
+      tlContent.style.transform = tlHidden;
+      break;
+    // case "top-right":
+    //   tlBtn.style.background = bgColor;
+    //   tlBtn.style.color = textColor;
+    //   tlContent.style.transform = tlHidden;
+    //   break;
+    // case "buttom-left":
+    //   tlBtn.style.background = bgColor;
+    //   tlBtn.style.color = textColor;
+    //   tlContent.style.transform = tlHidden;
+    //   break;
+    // case "buttom-right":
+    //   tlBtn.style.background = bgColor;
+    //   tlBtn.style.color = textColor;
+    //   tlContent.style.transform = tlHidden;
+    //   break;
+
+    default:
+  }
+
+  heroImage.className = "";
+  lastReverseAnimation = "";
+  activeCorner = "";
+  heroImage.classList.add(reverseAnimation);
+  setTimeout(function () {
+    heroImage.classList.remove(reverseAnimation);
+  }, 200);
+}
 
 // handle the onclick for each corner
 //Onclick corner button  functions
 
 tlBtn.onclick = function () {
   if (activeCorner === "top-left") {
-    // playClosingAnimation("reverse-animate-top-left");
+    playClosingAnimation("reverse-animate-top-left");
   } else {
     //removing arrow by default
     // trBtn.innerHTML = "Experience";
@@ -128,7 +167,7 @@ tlBtn.onclick = function () {
     activeCorner = "top-left";
     tlBtn.innerHTML = "&uarr; <br/> About"; //adding arrow above about
 
-    // handleWindowResize();
+    handleWindowResize();
     playAnimation("animate-top-left", "reverse-animate-top-left");
 
     //change background colors
