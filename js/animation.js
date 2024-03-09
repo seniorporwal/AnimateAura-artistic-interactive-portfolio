@@ -44,35 +44,68 @@ let brHidden = "translateX(100vw) translateY(100vh)";
 let activeCorner = "";
 
 // Add an event listener to the window object to listen for resize events
-// window.addEventListener("resize", handleWindowResize);
+window.addEventListener("resize", handleWindowResize);
 
 // Function that handles the styling when resizing window
-// function handleWindowResize() {
-//     //some code
-// }
+function handleWindowResize() {
+  switch (activeCorner) {
+    case "top-left":
+      // for mobile size
+      if (window.innerWidth <= 1100) {
+        tlActive = "translateX(0) translateY(0)";
+        tlContent.style.transform = "translateX(0vw) translateY(0)";
+        tlContent.style.width = "100vw";
+        tlContent.style.height = "100vh";
+        tlContent.style.top = "0";
+        tlContent.style.display = "flex";
+        tlContent.style.alignItems = "center";
+        tlContent.style.justifyContent = "center";
+        tlContent.style.background = "var(--bg-transparent)";
+        tlContent.style.zIndex = "200";
+        tlBtn.style.zIndex = "300";
+        // trBtn.style.zIndex = "100";
+        // blBtn.style.zIndex = "100";
+        // brBtn.style.zIndex = "100";
+      } else {
+        tlActive = "translateX(5vw) translateY(0)";
+        tlContent.style.transform = "translateX(5vw) translateY(0)";
+        tlContent.style.width = "30vw";
+        tlContent.style.height = "0";
+        tlContent.style.top = "10vh";
+        tlContent.style.display = "block";
+      }
+      break;
+    case "top-right":
+      break;
+    case "buttom-left":
+      break;
+    case "buttom-right":
+      break;
+  }
+}
 
 // Store last reverse animation, ready to be played
 let lastReverseAnimation = "";
 
 // Play animation function
-function playAnimation(animation, reverseAnimation){
-// Remove all the animation classes form heroImage
-    heroImage.className = "";
+function playAnimation(animation, reverseAnimation) {
+  // Remove all the animation classes form heroImage
+  heroImage.className = "";
 
-    if(lastReverseAnimation !== "") {
-        //clicked something
-        //reverse code here
-        heroImage.classList.add(lastReverseAnimation);
-        setTimeout(function () {
-            heroImage.classList.remove(lastReverseAnimation);
-            heroImage.classList.add(animation);
-            lastReverseAnimation = reverseAnimation;
-        }, 200);
-    } else{
-        //play forward code
-        heroImage.classList.add(animation);
-        lastReverseAnimation = reverseAnimation;
-    }
+  if (lastReverseAnimation !== "") {
+    //clicked something
+    //reverse code here
+    heroImage.classList.add(lastReverseAnimation);
+    setTimeout(function () {
+      heroImage.classList.remove(lastReverseAnimation);
+      heroImage.classList.add(animation);
+      lastReverseAnimation = reverseAnimation;
+    }, 200);
+  } else {
+    //play forward code
+    heroImage.classList.add(animation);
+    lastReverseAnimation = reverseAnimation;
+  }
 }
 
 // function playClosingAnimation(animation, reverseAnimation){
@@ -83,42 +116,40 @@ function playAnimation(animation, reverseAnimation){
 //Onclick corner button  functions
 
 tlBtn.onclick = function () {
-    if(activeCorner === "top-left") {
-        // playClosingAnimation("reverse-animate-top-left");
-    } else {
+  if (activeCorner === "top-left") {
+    // playClosingAnimation("reverse-animate-top-left");
+  } else {
+    //removing arrow by default
+    // trBtn.innerHTML = "Experience";
+    // blBtn.innerHTML = "Projects";
+    // brBtn.innerHTML = "Contacts";
 
-        //removing arrow by default
-        // trBtn.innerHTML = "Experience";
-        // blBtn.innerHTML = "Projects";
-        // brBtn.innerHTML = "Contacts";
+    // setting active corner
+    activeCorner = "top-left";
+    tlBtn.innerHTML = "&uarr; <br/> About"; //adding arrow above about
 
-        // setting active corner
-        activeCorner="top-left";
-        tlBtn.innerHTML = "&uarr; <br/> About";   //adding arrow above about
+    // handleWindowResize();
+    playAnimation("animate-top-left", "reverse-animate-top-left");
 
-        // handleWindowResize();
-        playAnimation("animate-top-left", "reverse-animate-top-left");
+    //change background colors
+    // trBtn.style.background = bgColor;
+    // brBtn.style.background = bgColor;
+    // blBtn.style.background = bgColor;
+    tlBtn.style.background = bgColorAlt;
 
-        //change background colors
-        // trBtn.style.background = bgColor;
-        // brBtn.style.background = bgColor;
-        // blBtn.style.background = bgColor;
-        tlBtn.style.background = bgColorAlt;
+    //change text colors
+    // trBtn.style.color = textColor;
+    // brBtn.style.color = textColor;
+    // blBtn.style.color = textColor;
+    tlBtn.style.color = textColorAlt;
 
-        //change text colors
-        // trBtn.style.color = textColor;
-        // brBtn.style.color = textColor;
-        // blBtn.style.color = textColor;
-        tlBtn.style.color = textColorAlt;
-
-        // Change the positoins of the corner content
-        // trcontent.style.transform = trHidden;
-        // brcontent.style.transform = brHidden;
-        // blcontent.style.transform = blHidden;
-        tlContent.style.transform = tlActive;
-    }
+    // Change the positoins of the corner content
+    // trcontent.style.transform = trHidden;
+    // brcontent.style.transform = brHidden;
+    // blcontent.style.transform = blHidden;
+    tlContent.style.transform = tlActive;
+  }
 };
-
 
 // trBtn.onclick = function () {
 //     if(activeCorner === "top-right") {
