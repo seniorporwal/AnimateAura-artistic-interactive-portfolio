@@ -56,8 +56,25 @@ let lastReverseAnimation = "";
 
 // Play animation function
 function playAnimation(animation, reverseAnimation){
-    //do something with these values
+// Remove all the animation classes form heroImage
+    heroImage.className = "";
+
+    if(lastReverseAnimation !== "") {
+        //clicked something
+        //reverse code here
+        heroImage.classList.add(lastReverseAnimation);
+        setTimeout(function () {
+            heroImage.classList.remove(lastReverseAnimation);
+            heroImage.classList.add(animation);
+            lastReverseAnimation = reverseAnimation;
+        });
+    } else{
+        //play forward code
+        heroImage.classList.add(animation);
+        lastReverseAnimation = reverseAnimation;
+    }
 }
+
 function playClosingAnimation(animation, reverseAnimation){
     //do something with these values
 }
