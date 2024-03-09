@@ -128,7 +128,7 @@ p {
   width: 30vw;
   height: 10vh;
   left: 0;
-  /* transform: translateX(-100vw) translateY(-100vh); */
+  transform: translateX(-100vw) translateY(-100vh);
 }
 
 article {
