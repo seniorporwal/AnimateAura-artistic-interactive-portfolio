@@ -14,9 +14,9 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-h5,
-h2,
 h1,
+h2,
+h5,
 p {
   margin: 0;
 }
@@ -26,6 +26,8 @@ p {
   width: 2rem;
   margin: 0 0.5rem;
 }
+
+/* HERO */
 
 #hero {
   position: absolute;
@@ -38,8 +40,8 @@ p {
 #hero__animation {
   animation-name: hover;
   animation-duration: 1.5s;
-  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
   height: 25rem;
   width: 25rem;
   max-height: 100vh;
@@ -127,7 +129,7 @@ p {
 
 #grid__tl__content {
   width: 30vw;
-  height: 10vh;
+  top: 10vh;
   left: 0;
   transform: translateX(-100vw) translateY(-100vh);
 }
@@ -218,13 +220,16 @@ article p {
 .experience__skill div h2 {
   text-align: left;
 }
+
 .experience__skill div p {
   padding: 0;
 }
+
 .experience__skill div h2,
 .experience__skill div p {
   font-size: 0.8rem;
 }
+
 .experience__skill div div {
   justify-content: space-between;
 }
@@ -306,4 +311,34 @@ button {
 .btn:hover,
 .arrow:hover {
   cursor: pointer;
+}
+
+/* BOTTOM RIGHT CORNER */
+
+#grid__br__btn {
+  bottom: -11.5rem;
+  right: -11.5rem;
+  transform: rotate(-45deg);
+}
+
+#grid__br__content {
+  bottom: 0;
+  right: 0vw;
+  transform: translateX(100vw) translateY(100vh);
+}
+
+#grid__br__content div {
+  display: flex;
+  margin: 0.5rem auto;
+  gap: 1.2rem;
+  width: 17rem;
+}
+
+.contact-text {
+  color: var(--text);
+}
+
+.btn-contact {
+  border: var(--border);
+  border-radius: 2rem;
 }
